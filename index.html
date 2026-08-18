@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Needs Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="#home" aria-label="Student Needs Portal home">
+        <span class="brand-mark">SN</span>
+        <span>Student Needs Portal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#listings">Listings</a>
+        <a href="#feedback">Reviews</a>
+        <a href="#admin">Admin</a>
+        <a class="btn btn-small" href="#auth">Sign In</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section-padding">
+      <div class="hero-content">
+        <p class="eyebrow">Verified student essentials in one portal</p>
+        <h1>Find hostels, mess services, and private libraries without stress.</h1>
+        <p class="hero-copy">A centralized web platform that connects students with admin-verified service providers, transparent prices, useful filters, and real feedback.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#listings">Explore Services</a>
+          <a class="btn btn-secondary" href="#provider">List Your Service</a>
+        </div>
+        <div class="stats" aria-label="Portal highlights">
+          <div><strong>120+</strong><span>Verified Listings</span></div>
+          <div><strong>4.7/5</strong><span>Average Rating</span></div>
+          <div><strong>24 hrs</strong><span>Admin Review</span></div>
+        </div>
+      </div>
+      <form id="auth" class="auth-card" aria-label="Student login form">
+        <h2>Student Sign In</h2>
+        <label>Email<input type="email" id="email" placeholder="student@example.com" required></label>
+        <label>Password<input type="password" id="password" placeholder="••••••••" required></label>
+        <button class="btn full" type="submit">Login / Register</button>
+        <p id="authMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="services" class="section-padding">
+      <div class="section-heading">
+        <p class="eyebrow">Project modules</p>
+        <h2>Everything students need after moving to a new city</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><span>🏠</span><h3>Accommodation</h3><p>Search hostels, flats, and rental rooms using filters for location, budget, gender preference, and amenities.</p></article>
+        <article class="service-card"><span>🍱</span><h3>Mess Services</h3><p>Compare menus, monthly prices, hygiene details, meal types, and student ratings before choosing a mess.</p></article>
+        <article class="service-card"><span>📚</span><h3>Private Libraries</h3><p>Find nearby study spaces with operating hours, membership fees, seat availability, and registration details.</p></article>
+        <article class="service-card"><span>🛡️</span><h3>Admin Verification</h3><p>Providers are marked verified only after admin review, improving safety and authenticity for students.</p></article>
+      </div>
+    </section>
+
+    <section id="listings" class="section-padding listings-section">
+      <div class="section-heading">
+        <p class="eyebrow">Search portal</p>
+        <h2>Browse verified listings</h2>
+      </div>
+      <div class="filters" aria-label="Listing filters">
+        <input id="searchInput" type="search" placeholder="Search by name, area, or amenity" />
+        <select id="typeFilter" aria-label="Filter by service type">
+          <option value="all">All services</option>
+          <option value="hostel">Hostels / Rooms</option>
+          <option value="mess">Mess Services</option>
+          <option value="library">Private Libraries</option>
+        </select>
+        <select id="budgetFilter" aria-label="Filter by budget">
+          <option value="all">Any budget</option>
+          <option value="low">Under ₹3,000</option>
+          <option value="mid">₹3,000 - ₹7,000</option>
+          <option value="high">Above ₹7,000</option>
+        </select>
+      </div>
+      <div id="listingGrid" class="listing-grid"></div>
+    </section>
+
+    <section id="feedback" class="section-padding feedback-section">
+      <div class="section-heading">
+        <p class="eyebrow">Transparency</p>
+        <h2>Student feedback improves decisions</h2>
+      </div>
+      <div class="feedback-layout">
+        <div id="reviews" class="reviews"></div>
+        <form id="reviewForm" class="review-form">
+          <h3>Post a review</h3>
+          <label>Your name<input id="reviewName" required placeholder="Aarav"></label>
+          <label>Service name<input id="reviewService" required placeholder="Green Nest Hostel"></label>
+          <label>Rating<select id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+          <label>Feedback<textarea id="reviewText" required placeholder="Share your experience"></textarea></label>
+          <button class="btn full" type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="provider" class="section-padding provider-section">
+      <div>
+        <p class="eyebrow">For providers</p>
+        <h2>Register your hostel, mess, or library for verification</h2>
+        <p>Service providers can submit details for admin review. Verified listings gain better visibility among students and build trust through reviews.</p>
+      </div>
+      <form id="providerForm" class="provider-form">
+        <input id="providerName" required placeholder="Service / Business name">
+        <select id="providerType"><option>Hostel</option><option>Mess</option><option>Private Library</option></select>
+        <input id="providerArea" required placeholder="Area / City">
+        <button class="btn" type="submit">Request Verification</button>
+        <p id="providerMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="admin" class="section-padding admin-section">
+      <div class="section-heading">
+        <p class="eyebrow">Admin panel preview</p>
+        <h2>Moderate providers and reviews</h2>
+      </div>
+      <div class="admin-grid">
+        <div><strong>18</strong><span>Pending Providers</span></div>
+        <div><strong>96%</strong><span>Verified Accuracy</span></div>
+        <div><strong>7</strong><span>Reviews Flagged</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Student Needs Portal. Built with HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
